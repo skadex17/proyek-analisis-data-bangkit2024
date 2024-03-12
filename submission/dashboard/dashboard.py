@@ -6,8 +6,8 @@ from babel.numbers import format_currency
 sns.set(style='dark')
 
 # Load data
-day_df = pd.read_csv("day_mod.csv")
-hour_df = pd.read_csv("hour_mod.csv")
+day_df = pd.read_csv("https://github.com/skadex17/proyek-analisis-data-bangkit2024/blob/main/submission/dashboard/day_mod.csv")
+hour_df = pd.read_csv("https://github.com/skadex17/proyek-analisis-data-bangkit2024/blob/main/submission/dashboard/hour_mod.csv")
 
 # Define functions for plotting
 def plot_monthly_rental(day_df):
