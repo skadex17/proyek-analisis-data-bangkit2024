@@ -12,7 +12,7 @@
 
 3. Install the required packages using pipenv:
     ```bash
-    pipenv install numpy pandas scipy matplotlib seaborn jupyter streamlit babel
+    pipenv install numpy pandas matplotlib seaborn jupyter streamlit babel
     ```
 
 ## Run Streamlit App
