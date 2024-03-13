@@ -52,6 +52,20 @@ def plot_weatherly_rental(hour_df):
     plt.tight_layout()
     st.pyplot(fig)
 
+def plot_temperature_level_rental(day_df):
+    day_df["temperature_level"] = day_df["temperature"].apply(lambda x: "Low" if x <= 10 else ("High" if x > 25 else "Medium"))
+
+    temperature_level_rental = day_df.groupby(by="temperature_level", sort=False).agg({"total_rental": "sum"})
+
+    fig, ax = plt.subplots(figsize=(10, 6))
+    sns.barplot(x=temperature_level_rental.index, y=temperature_level_rental["total_rental"] / 1000, color='skyblue')
+    ax.set_xlabel('Temperature Level')
+    ax.set_ylabel('Total Rental (in thousands)')
+    ax.set_title('Total Rental by Temperature Level')
+    ax.tick_params(axis='x', rotation=45)
+    plt.tight_layout()
+    st.pyplot(fig)
+
 def plot_monthly_yearly_rental(day_df):
     monthly_rental = day_df.groupby(by=["month", "year"], sort=False).agg({"total_rental": "sum"}).reset_index()
     monthly_rental["total_rental"] /= 1000
@@ -94,6 +108,9 @@ plot_seasonly_rental(filtered_day_df)
 
 st.subheader('Total Rental by Weather')
 plot_weatherly_rental(filtered_hour_df)
+
+st.subheader('Total Rental by Temperature Level')
+plot_temperature_level_rental(filtered_day_df)
 
 st.subheader('Total Rental by Month and Year')
 plot_monthly_yearly_rental(filtered_day_df)
