@@ -16,8 +16,12 @@
     ```
 
 ## Run Streamlit App
+1. Once you have set up the environment, navigate to the directory where your dashboard.py is located. in this case the file is inside dashboard directory:
+    ```bash
+    cd dashboard
+    ```
 
-Once you have set up the environment, you can run the Streamlit app using the following command:
-
-```bash
-streamlit run dashboard.py
+2. Run the Streamlit app using the following command:
+    ```bash
+    streamlit run dashboard.py
+    ```
